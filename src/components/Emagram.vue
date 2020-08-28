@@ -474,7 +474,7 @@
     .moistline {
       stroke: Orange;
     }
-    .mixingline {
+    .mixingratioline {
       stroke: cyan;
     }
   }
