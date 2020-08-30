@@ -12,7 +12,8 @@ const kappa = 0.286; //air_Rd / air_Cp_d;
  * @param {number} t [K]
  * @return {number} [Pa]
  */
-const saturationVaporPressure = (t) => water_es_0c * Math.exp((17.67 * (t - 273.15)) / (t - 29.65));
+const saturationVaporPressure = (t) =>
+  water_es_0c * Math.exp((17.67 * (t - 273.15)) / (t - 29.65));
 
 /**
  * 混合比を計算する．
@@ -60,7 +61,11 @@ const equivalentPotentialTemperature = (p, t, td, p0 = 1e5) => {
 const saturationEquivalentPontentialTemperature = (p, t, p0 = 1e5) => {
   const es = saturationVaporPressure(t);
   const w = mixingRatio(p, es);
-  return t * (p0 / (p - es)) ** kappa * Math.exp((3036 / t - 1.78) * w * (1 + 0.448 * w));
+  return (
+    t *
+    (p0 / (p - es)) ** kappa *
+    Math.exp((3036 / t - 1.78) * w * (1 + 0.448 * w))
+  );
 };
 
 /**
@@ -108,7 +113,10 @@ const moistLapse = (p, t) => {
  */
 export const SaturationMixingRatioLine = (p, w0) => {
   // 混合比から水蒸気圧を求めて露点温度を求める
-  return p.map((pin) => [pin, dewpoint_from_e(pin * 100, (pin * 100 * w0) / (epsilon + w0))]);
+  return p.map((pin) => [
+    pin,
+    dewpoint_from_e(pin * 100, (pin * 100 * w0) / (epsilon + w0)),
+  ]);
 };
 
 /**
@@ -137,7 +145,10 @@ export const moistAdiabaticLine = (p, t0) => {
     if (Math.log(p[i + 1]) - Math.log(p[i]) < Math.log(790) - Math.log(800)) {
       //      const n = 15;
       const n =
-        Math.floor((Math.log(p[i + 1]) - Math.log(p[i])) / (Math.log(790) - Math.log(800))) + 1;
+        Math.floor(
+          (Math.log(p[i + 1]) - Math.log(p[i])) /
+            (Math.log(790) - Math.log(800))
+        ) + 1;
       const p_sub = linspace(p[i], p[i + 1], n);
       for (let j = 0; j < p_sub.length - 1; j++) {
         t = t + moistLapse(p_sub[j], t) * (p_sub[j + 1] - p_sub[j]);

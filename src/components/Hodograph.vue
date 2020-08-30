@@ -3,10 +3,19 @@
     <text :x="width / 2" :y="0" text-anchor="middle" dy="1.2em">
       {{ title }}
     </text>
-    <g :transform="`translate(${margin.left + axisWidth / 2},${margin.top + axisHeight / 2})`">
+    <g
+      :transform="`translate(${margin.left + axisWidth / 2},${
+        margin.top + axisHeight / 2
+      })`"
+    >
       <g class="aaxis">
         <g v-for="a in aaxis" :key="a.id">
-          <line v-show="isgrid" x2="0" :y2="outerRadius" :transform="`rotate(${a.angle})`"></line>
+          <line
+            v-show="isgrid"
+            x2="0"
+            :y2="outerRadius"
+            :transform="`rotate(${a.angle})`"
+          />
           <text
             x="0"
             y="0"
@@ -19,9 +28,9 @@
         </g>
       </g>
       <g class="raxis">
-        <circle r="1"></circle>
+        <circle r="1" />
         <g v-for="r in raxis" :key="r.id">
-          <circle :r="r.radius"></circle>
+          <circle :r="r.radius" />
           <text
             x="0"
             y="0"
@@ -35,7 +44,7 @@
         </g>
       </g>
       <g class="sounding">
-        <path v-for="line in lines" :key="line.id" :d="d(line.d)"></path>
+        <path v-for="line in lines" :key="line.id" :d="d(line.d)" />
       </g>
     </g>
   </svg>
@@ -74,7 +83,9 @@
       },
       raxis() {
         const scale = this.scale;
-        const ticks = this.isgrid ? scale.r.ticks(5).slice(1) : [scale.r.ticks(5).pop()];
+        const ticks = this.isgrid
+          ? scale.r.ticks(5).slice(1)
+          : [scale.r.ticks(5).pop()];
         return ticks.map((r) => ({
           radius: scale.r(r),
           label: r,
@@ -110,7 +121,9 @@
         return [
           {
             d: this.soundings
-              .filter((d) => (d.pres >= this.prange[0]) & (d.pres <= this.prange[1]))
+              .filter(
+                (d) => (d.pres >= this.prange[0]) & (d.pres <= this.prange[1])
+              )
               .map((d) => [d.sknt, d.drct + 180]),
           },
         ];

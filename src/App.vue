@@ -99,7 +99,7 @@
               :trange="trange"
               :isgrid="isgrid"
               :soundings="soundings"
-            ></Emagram>
+            />
           </div>
         </div>
         <div class="tile is-parent is-vertical">
@@ -112,7 +112,7 @@
               :rrange="rrange"
               :isgrid="isgrid"
               :soundings="soundings"
-            ></Hodograph>
+            />
           </div>
           <div class="tile is-child">
             <Emagram
@@ -202,9 +202,8 @@
         d3.json(source)
           .then((res) => {
             this.dataerror = false;
-            this.title = `${
-              this.options.find((d) => d.number == res.station).name
-            } ${res.year}/${res.month}/${res.day} ${res.hour}UTC`;
+            const name = this.options.find((d) => d.number == res.station).name;
+            this.title = `${name} ${res.year}/${res.month}/${res.day} ${res.hour}UTC`;
             this.soundings = res.data.map((d) => {
               d['thtes'] = d.temp == null ? null : calcThetaEs(d.pres, d.temp);
               return d;
@@ -254,7 +253,7 @@
   };
 </script>
 
-<style lang="scss">
+<style>
   .main {
     max-width: 1216px;
   }
