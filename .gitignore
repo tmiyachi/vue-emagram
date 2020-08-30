@@ -1,4 +1,5 @@
-node_modules
-.venv
+node_modules/
+.venv/
 Pipfile.lock
-dist
+dist/
+.vscode/
