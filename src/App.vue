@@ -28,6 +28,7 @@
         <p v-if="dataerror" class="has-text-danger has-text-weight-bold">
           データ取得エラー
         </p>
+
         <p class="menu-label">表示範囲</p>
         <div class="control">
           <b-field label="気温">
@@ -84,6 +85,16 @@
               グリッド{{ isgrid ? 'あり ' : 'なし' }}
             </b-checkbox>
           </div>
+          <a
+            class="button"
+            href="https://github.com/tmiyachi/vue-emagram"
+            target="_blank"
+          >
+            <span class="icon">
+              <i class="mdi mdi-github"></i>
+            </span>
+            <span>GitHub</span>
+          </a>
         </div>
       </aside>
     </div>
