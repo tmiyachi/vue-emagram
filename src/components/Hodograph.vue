@@ -122,7 +122,11 @@
           {
             d: this.soundings
               .filter(
-                (d) => (d.pres >= this.prange[0]) & (d.pres <= this.prange[1])
+                (d) =>
+                  (d.pres >= this.prange[0]) &
+                  (d.pres <= this.prange[1]) &
+                  (d.sknt != null) &
+                  (d.drct != null)
               )
               .map((d) => [d.sknt, d.drct + 180]),
           },

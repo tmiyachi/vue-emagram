@@ -213,14 +213,39 @@
       lines() {
         if (this.xaxis == 'temp') {
           return [
-            { stroke: 'red', d: this.soundings.map((d) => [d.temp, d.pres]) },
-            { stroke: 'blue', d: this.soundings.map((d) => [d.dewt, d.pres]) },
+            {
+              stroke: 'red',
+              d: this.soundings
+                .filter((d) => d.temp != null)
+                .map((d) => [d.temp, d.pres]),
+            },
+            {
+              stroke: 'blue',
+              d: this.soundings
+                .filter((d) => d.dewt != null)
+                .map((d) => [d.dewt, d.pres]),
+            },
           ];
         } else {
           return [
-            { stroke: 'black', d: this.soundings.map((d) => [d.thta, d.pres]) },
-            { stroke: 'blue', d: this.soundings.map((d) => [d.thte, d.pres]) },
-            { stroke: 'red', d: this.soundings.map((d) => [d.thtes, d.pres]) },
+            {
+              stroke: 'black',
+              d: this.soundings
+                .filter((d) => d.thta != null)
+                .map((d) => [d.thta, d.pres]),
+            },
+            {
+              stroke: 'blue',
+              d: this.soundings
+                .filter((d) => d.thte != null)
+                .map((d) => [d.thte, d.pres]),
+            },
+            {
+              stroke: 'red',
+              d: this.soundings
+                .filter((d) => d.thtes != null)
+                .map((d) => [d.thtes, d.pres]),
+            },
           ];
         }
       },
@@ -228,7 +253,11 @@
         const yScale = this.scale.y;
         return this.soundings
           .filter(
-            (d) => (d.pres >= this.prange[0]) & (d.pres <= this.prange[1])
+            (d) =>
+              (d.pres >= this.prange[0]) &
+              (d.pres <= this.prange[1]) &
+              (d.sknt != null) &
+              (d.drct != null)
           )
           .map((d) => ({
             y: yScale(d.pres),
