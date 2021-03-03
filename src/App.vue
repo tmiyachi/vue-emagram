@@ -214,7 +214,9 @@
           .then((res) => {
             this.dataerror = false;
             const name = this.options.find((d) => d.number == res.station).name;
-            this.title = `${name} ${res.year}/${res.month}/${res.day} ${res.hour}UTC`;
+            this.title = `${name} ${d3.timeFormat('%Y/%m/%d %H')(
+              new Date(res.year, res.month - 1, res.day, res.hour)
+            )}UTC`;
             this.soundings = res.data.map((d) => {
               d['thtes'] = d.temp == null ? null : calcThetaEs(d.pres, d.temp);
               return d;
