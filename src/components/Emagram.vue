@@ -225,6 +225,12 @@
                 .filter((d) => d.dewt != null)
                 .map((d) => [d.dewt, d.pres]),
             },
+            {
+              stroke: 'green',
+              d: this.soundings
+                .filter((d) => d.wett != null)
+                .map((d) => [d.wett, d.pres]),
+            },
           ];
         } else {
           return [
@@ -274,7 +280,10 @@
               pres: {
                 x: 0,
                 y: scale.y(this.mouseOnData.pres),
-                text: `${this.mouseOnData.pres}hPa ${this.mouseOnData.hght}m`,
+                text:
+                  this.mouseOnData.hght == null
+                    ? `${this.mouseOnData.pres}hPa`
+                    : `${this.mouseOnData.pres}hPa ${this.mouseOnData.hght}m`,
               },
               data: [
                 {
@@ -301,7 +310,7 @@
                       ? null
                       : `${d3.format('.1f')(this.mouseOnData.dewt)}℃`,
                 },
-              ],
+              ].filter((d) => d.x != null),
             };
           } else {
             return {
@@ -309,7 +318,10 @@
               pres: {
                 x: 0,
                 y: scale.y(this.mouseOnData.pres),
-                text: `${this.mouseOnData.pres}hPa ${this.mouseOnData.hght}m`,
+                text:
+                  this.mouseOnData.hght == null
+                    ? `${this.mouseOnData.pres}hPa`
+                    : `${this.mouseOnData.pres}hPa ${this.mouseOnData.hght}m`,
               },
               data: [
                 {
@@ -348,7 +360,7 @@
                       ? null
                       : `${d3.format('.1f')(this.mouseOnData.thtes)}K`,
                 },
-              ],
+              ].filter((d) => d.x != null),
             };
           }
         } else {
