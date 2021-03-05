@@ -77,6 +77,7 @@
               :min="50"
               :max="1050"
               :step="50"
+              @change="changeChecked"
             ></b-slider>
           </b-field>
 
