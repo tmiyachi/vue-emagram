@@ -16,14 +16,13 @@ npm run build
 Getting sounding data from [University of Wyoming](http://weather.uwyo.edu/upperair/sounding.html) and create JSON formatted file.
 
 ```
-cd work
 pipenv install
-python getDataFromUWYO.py
+python work/getDataFromUWYO.py
 ```
 
 copy these files to dist/data directory and launch local web server.
 
 ```
-cp work/obs_yyyymmddhh_xxxxx.json dist/data
+cp -r work/data dist/data
 npm run start
 ```

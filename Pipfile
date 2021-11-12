@@ -4,6 +4,10 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+flake8 = "*"
+mypy = "*"
+isort = "*"
+black = "==21.10b"
 
 [packages]
 metpy = "*"
@@ -13,3 +17,9 @@ bs4 = "*"
 
 [requires]
 python_version = "3.8"
+
+[scripts]
+flake8 = "flake8 ."
+black = "black ."
+mypy = "mypy ."
+isort = "isort . --atomic"

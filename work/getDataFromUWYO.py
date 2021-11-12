@@ -4,7 +4,7 @@
 ワイオミング大学のページから高層観測データを取得してJSON形式に加工する.
 """
 import json
-
+from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
@@ -44,7 +44,11 @@ def getData(station, year, month, day, hour):
         'thtw': convert(row, 11),
     } for row in rows.split('\n')[4:]]
 
-    with open('obs_{year:04d}{month:02d}{day:02d}{hour:02d}_{station}.json'.format(**parameters), 'w') as f:
+    DATA_DIR = Path(__file__).resolve().parent / 'data'
+    if not DATA_DIR.is_dir():
+        DATA_DIR.mkdir()
+
+    with open(DATA_DIR / 'obs_{year:04d}{month:02d}{day:02d}{hour:02d}_{station}.json'.format(**parameters), 'w') as f:
         json.dump({
             'station': parameters['station'],
             'year': parameters['year'],
@@ -58,4 +62,7 @@ def getData(station, year, month, day, hour):
 if __name__ == '__main__':
     year, month, day, hour = 2020, 8, 27, 12
     for station in [47971, 47918, 47827, 47778, 47741, 47646]:
-        getData(station, year, month, day, hour)
+        try:
+            getData(station, year, month, day, hour)
+        except AttributeError:
+            print("データの取得に失敗しました．{}".format(station))
