@@ -103,7 +103,7 @@
       <div class="tile is-ancestor">
         <div class="tile is-parent">
           <div class="tile is-child">
-            <Emagram
+            <emagram-chart
               :width="560"
               :height="630"
               :title="title"
@@ -116,7 +116,7 @@
         </div>
         <div class="tile is-parent is-vertical">
           <div class="tile is-child mb-0">
-            <Hodograph
+            <hodograph-chart
               :width="320"
               :height="250"
               title=""
@@ -151,8 +151,8 @@
   import { Field, Select, Datetimepicker, Slider, Checkbox } from 'buefy';
   import * as d3 from 'd3';
   import { calcThetaEs } from '@/lib/thermodynamics.js';
-  import Emagram from '@/components/Emagram.vue';
-  import Hodograph from '@/components/Hodograph.vue';
+  import EmagramChart from '@/components/EmagramChart.vue';
+  import HodographChart from '@/components/HodographChart.vue';
 
   import 'buefy/dist/buefy.css';
 
@@ -164,8 +164,8 @@
 
   export default {
     components: {
-      Emagram,
-      Hodograph,
+      EmagramChart,
+      HodographChart,
     },
     data() {
       return {
