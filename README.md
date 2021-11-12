@@ -4,7 +4,7 @@ Vue.js と d3.js でエマグラムとホドグラフを描く
 
 ### demo
 
-https://tmiyachi.github.io/vue-emagram/
+<https://tmiyachi.github.io/vue-emagram/>
 
 ### build & test
 
@@ -24,7 +24,6 @@ python getDataFromUWYO.py
 copy these files to dist/data directory and launch local web server.
 
 ```
-cp work/obs_yyyymmddhh_xxxxx.json dist/
-cd dist
-http-server -p 8080
+cp work/obs_yyyymmddhh_xxxxx.json dist/data
+npm run start
 ```
