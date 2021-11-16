@@ -2,5 +2,13 @@
   "tabWidth": 2,
   "htmlWhitespaceSensitivity": "ignore",
   "singleQuote": true,
-  "vueIndentScriptAndStyle": true
+  "vueIndentScriptAndStyle": true,
+  "overrides": [
+    {
+      "files": ["**/*.html"],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
 }

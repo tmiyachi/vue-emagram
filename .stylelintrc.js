@@ -3,7 +3,7 @@ module.exports = {
     'stylelint-config-recommended-scss',
     'stylelint-config-recess-order',
     'stylelint-config-recommended-vue',
-    'stylelint-prettier/recommended',
+    'stylelint-config-prettier',
   ],
   overrides: [
     {
@@ -11,5 +11,8 @@ module.exports = {
       customSyntax: 'postcss-scss',
     },
   ],
-  rules: {},
+  rules: {
+    'at-rule-no-unknown': null,
+    'scss/at-rule-no-unknown': true,
+  },
 };
