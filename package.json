@@ -54,6 +54,10 @@
     "fix:prettier": "npm run lint:prettier -- --write",
     "fix": "run-s fix:*"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmiyachi/vue-emagram.git"
+  },
   "private": true,
   "keywords": [],
   "author": "tmiyachi",
