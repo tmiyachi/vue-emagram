@@ -127,7 +127,7 @@
             />
           </div>
           <div class="tile is-child">
-            <Emagram
+            <EmagramChart
               :height="350"
               :width="320"
               title=""
@@ -138,7 +138,7 @@
               :xaxis="'theta'"
               :istooltip="false"
               :isbarb="false"
-            ></Emagram>
+            ></EmagramChart>
           </div>
         </div>
       </div>

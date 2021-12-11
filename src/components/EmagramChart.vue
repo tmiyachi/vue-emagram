@@ -29,7 +29,7 @@
             :key="line.id"
             :class="name"
             :d="d(line)"
-            clip-path="url(#clipmask)"
+            :clip-path="`url(#clipmask-${id})`"
           ></path>
         </g>
       </g>
@@ -40,7 +40,7 @@
           :key="line.id"
           :stroke="line.stroke"
           :d="d(line.d)"
-          clip-path="url(#clipmask)"
+          :clip-path="`url(#clipmask-${id})`"
         ></path>
         <!-- wind -->
         <g v-if="isbarb">
@@ -134,11 +134,11 @@
         @mouseon="mouseOnAction"
         @mouseout="mouseOutAction"
       ></rect>
+      <!-- clippath for line -->
+      <clipPath :id="`clipmask-${id}`">
+        <rect x="0" y="0" :width="axisWidth" :height="axisHeight"></rect>
+      </clipPath>
     </g>
-    <!-- clippath for line -->
-    <clipPath id="clipmask">
-      <rect x="0" y="0" :width="axisWidth" :height="axisHeight"></rect>
-    </clipPath>
   </svg>
 </template>
 
@@ -189,6 +189,8 @@
       baseline: baseline,
       /* tooltip表示データ */
       mouseOnData: null,
+      /** ユニークID */
+      id: null,
     }),
     computed: {
       axisWidth() {
@@ -389,6 +391,7 @@
       },
     },
     mounted() {
+      this.id = this._uid;
       // 矢羽根のテンプレートを作成する
       this.makeBarbTemplates(this.$el);
     },
