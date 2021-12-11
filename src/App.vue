@@ -153,6 +153,7 @@
   import { calcThetaEs } from '@/lib/thermodynamics.js';
   import EmagramChart from '@/components/EmagramChart.vue';
   import HodographChart from '@/components/HodographChart.vue';
+  import stationOptions from '@/json/station-options.json';
 
   import 'buefy/dist/buefy.css';
 
@@ -182,14 +183,7 @@
         rrange: [0, 100],
         isgrid: true,
         // 地点選択リスト
-        options: [
-          { name: '館野', number: 47646 },
-          { name: '松江', number: 47741 },
-          { name: '潮岬', number: 47778 },
-          { name: '鹿児島', number: 47827 },
-          { name: '石垣島', number: 47918 },
-          { name: '父島', number: 47971 },
-        ],
+        options: stationOptions,
         // 描画データ
         title: '',
         soundings: [],
