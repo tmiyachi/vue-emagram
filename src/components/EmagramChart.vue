@@ -182,16 +182,14 @@
       istooltip: { type: Boolean, default: true },
       islegend: { type: Boolean, default: true },
     },
-    data() {
-      return {
-        /* 余白 */
-        margin: { top: 30, right: 30, bottom: 40, left: 50 },
-        /* 熱力学曲線データ格納用 */
-        baseline: baseline,
-        /* tooltip表示データ */
-        mouseOnData: null,
-      };
-    },
+    data: () => ({
+      /* 余白 */
+      margin: { top: 30, right: 30, bottom: 40, left: 50 },
+      /* 熱力学曲線データ格納用 */
+      baseline: baseline,
+      /* tooltip表示データ */
+      mouseOnData: null,
+    }),
     computed: {
       axisWidth() {
         return this.width - this.margin.left - this.margin.right;

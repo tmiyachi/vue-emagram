@@ -168,27 +168,25 @@
       EmagramChart,
       HodographChart,
     },
-    data() {
-      return {
-        // データオプション
-        station: 47646,
-        basetime: new Date('2020-08-27T12:00'),
-        // エラー制御
-        dataerror: false,
-        // 描画オプション
-        isfitrange: false,
-        trange: [-80, 40],
-        prange: [100, 1050],
-        thetarange: [280, 400],
-        rrange: [0, 100],
-        isgrid: true,
-        // 地点選択リスト
-        options: stationOptions,
-        // 描画データ
-        title: '',
-        soundings: [],
-      };
-    },
+    data: () => ({
+      // データオプション
+      station: 47646,
+      basetime: new Date('2020-08-27T12:00'),
+      // エラー制御
+      dataerror: false,
+      // 描画オプション
+      isfitrange: false,
+      trange: [-80, 40],
+      prange: [100, 1050],
+      thetarange: [280, 400],
+      rrange: [0, 100],
+      isgrid: true,
+      // 地点選択リスト
+      options: stationOptions,
+      // 描画データ
+      title: '',
+      soundings: [],
+    }),
     watch: {
       station: {
         handler: function () {

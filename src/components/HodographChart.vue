@@ -66,11 +66,9 @@
       },
       title: { type: String, default: '' },
     },
-    data() {
-      return {
-        margin: { top: 40, bottom: 10, left: 5, right: 5 },
-      };
-    },
+    data: () => ({
+      margin: { top: 40, bottom: 10, left: 5, right: 5 },
+    }),
     computed: {
       aaxis() {
         const scale = this.scale;
