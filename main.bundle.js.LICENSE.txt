@@ -5,11 +5,11 @@
  *
  * - core-js (https://github.com/zloirock/core-js/blob/master/LICENSE)
  *   The MIT License (MIT)
- *   Copyright (c) 2014-2021 Denis Pushkarev
+ *   Copyright (c) 2014-2022 Denis Pushkarev
  *
- * - D3 (https://github.com/d3/d3/blob/v6.7.0/LICENSE)
- *   BSD license
- *   Copyright 2010-2020 Mike Bostock
+ * - D3 (https://github.com/d3/d3/blob/v7.5.0/LICENSE)
+ *   ISC License
+ *   Copyright 2010-2022 Mike Bostock
  *
  * - vue (https://github.com/vuejs/vue/blob/master/LICENSE)
  *   The MIT License (MIT)
