@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "buefy": "^0.9.21",
+    "buefy": "^0.9.22",
     "core-js": "^3.23.3",
     "d3": "^7.5.0",
     "vue": "^2.6.14"
